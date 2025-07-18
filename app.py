@@ -80,6 +80,10 @@ def nieuw_contactmoment(klant_id):
         return redirect(url_for('klant_detail', klant_id=klant_id))
     return render_template('nieuw_contactmoment.html', klant_id=klant_id)
 
+import os
+
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
